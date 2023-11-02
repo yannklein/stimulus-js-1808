@@ -15,66 +15,58 @@
         }
       }
     </script>
-    <script src="javascript/application.js" type="module"></script>
   </head>
 
   <body>
     <div class="container text-center mt-5">
       <h1>Stimulus JS ⚡️</h1>
       <div class="row">
-        <div 
-          data-controller="disable-button" 
-          class="col-12 pt-1"
-        >
+        <div data-controller="disable-button" class="col-12 pt-1">
 
-          <button 
-            class="btn btn-primary btn-lg" 
-            id="click-me"
-            data-action="click->disable-button#disable"
-            data-disable-button-target="clickme"
-          >
-          Click me!
+          <button data-disable-button-target="clickme" data-action="click->disable-button#disable" class="btn btn-primary btn-lg" id="click-me">
+            Click me!
           </button>
 
-          <button 
-            class="btn btn-outline-primary d-none"
-            data-disable-button-target="reset"
-            data-action="click->disable-button#enable"
-          >
-          Reset
+          <button data-action="click->disable-button#enable" data-disable-button-target="reset" class="btn btn-outline-primary d-none">
+            Reset
           </button>
 
         </div>
       </div>
 
-      <div data-controller="movies" data-movies-api-value="https://www.omdbapi.com/" class="col-12">
+      <div 
+        data-controller="movies" 
+        data-movies-api-value="https://www.omdbapi.com" 
+        class="col-12"
+      >
 
         <form class="row g-2 justify-content-center py-5">
           <div class="col-4">
             <input 
+              data-movies-target="input" 
               type="text" 
               class="form-control" 
               placeholder="Find movie"
-              data-movies-target="title"
             >
           </div>
           <div class="col-1">
             <input 
+              data-action="click->movies#search" 
               type="submit" 
               class="btn btn-primary"
-              data-action="click->movies#search"
             >
           </div>
         </form>
 
         <ul 
-          class="list-group list-group-horizontal"
-          data-movies-target="list"
-        ></ul>
+          data-movies-target="list" 
+          class="list-group list-group-vertical">
+        </ul>
 
       </div>
 
 
     </div>
+    <script src="javascript/application.js" type="module"></script>
   </body>
 </html>
