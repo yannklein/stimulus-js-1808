@@ -1,28 +1,23 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ["reset", "clickme"]
+  static targets = ['reset', 'clickMe']
 
+  // executed automatically at page refresh
   connect() {
     console.log("Hello from our first Stimulus controller")
     console.log(this.resetTarget)
-    console.log(this.clickmeTarget)
-    console.log(this.element) // targets the controller
   }
 
   disable(event) {
-    console.log(event)
-    const clickedElement = event.currentTarget
-    clickedElement.innerText = "Loading..."
-    clickedElement.disabled = true
-    // display reset button
-    // const resetBtn = document.querySelector("???")
+    event.currentTarget.innerText = "☠️"
+    event.currentTarget.disabled = true
     this.resetTarget.classList.remove("d-none")
   }
 
   enable() {
-    this.clickmeTarget.innerText = "Click me again!"
-    this.clickmeTarget.disabled = false
     this.resetTarget.classList.add("d-none")
+    this.clickMeTarget.innerText = "Click me again!"
+    this.clickMeTarget.disabled = false
   }
 }
