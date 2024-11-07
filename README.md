@@ -25,3 +25,5 @@ serve
 ```
 
 And visit `localhost:8000`
+
+API link: http://www.omdbapi.com/?s=matrix&apikey=adf1f2d7

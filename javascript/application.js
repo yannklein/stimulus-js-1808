@@ -2,16 +2,18 @@
 // Rehearsal
 // //////////////
 
-// // 1. Select the element button
+// // 1. Select elements (button)
 // const button = document.querySelector("#clickme");
 // // 2. Listen to a click on the button
 // button.addEventListener("click", (event) => {
 //   console.log(event);
-//   // 3. Change the DOM (add disabled and change the content)
-//   const clickedElement = event.currentTarget;
-//   clickedElement.disabled = true;
-//   clickedElement.innerText = "Loading...";
+//   // 3. Change the dom (innerText, disable)
+//   // event.currentTarget --> the element we clicked, here it is the button
+//   event.currentTarget.innerText = "Loading...";
+//   event.currentTarget.disabled = true;
+//   // event.currentTarget === button
 // });
+
 
 // //////////////
 // Stimulus 101
@@ -25,12 +27,10 @@
 
 import { Application } from "@hotwired/stimulus"
 window.Stimulus = Application.start()
+// window.mason = "Awesome!";
 
 import DisableButtonController from "./controllers/disable_button_controller.js"
 Stimulus.register("disable-button", DisableButtonController)
 
-import MovieController from "./controllers/movie_controller.js"
-Stimulus.register("movie", MovieController)
-
-
-// http://www.omdbapi.com/?s=matrix&apikey=adf1f2d7
+import moviesController from "./controllers/movies_controller.js"
+Stimulus.register("movies", moviesController)

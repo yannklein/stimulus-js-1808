@@ -1,30 +1,33 @@
 import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  static targets = [ 'reset', 'clickMe' ]
 
+  static targets = ["reset", "clickMe"]
   static values = {
-    example: String
+    caption: String,
+    mason: String
   }
-
+  // runs at page refresh if the controller is present in the HTML
   connect() {
-    // console.log('Hello from disable_button_controller.js')
-    // console.log(this.resetTarget)
-    // console.log(this.exampleValue)
-    // console.log(this.element) // targets the data-controller
+    // console.log("Hello from our first Stimulus controller");
+    // console.log(this.resetTarget);
+    // console.log(this.captionValue);
+    // console.log(this.masonValue);
+    // console.log(this.element); // the HTML element that has the data-controller
+    
   }
 
   disable(event) {
-    // console.log(event);
+    // console.log("clicked!")
+    event.currentTarget.innerText = this.captionValue
     event.currentTarget.disabled = true;
-    event.currentTarget.innerText = "☠️";
     this.resetTarget.classList.remove("d-none");
   }
 
   enable() {
     // console.log("enable");
-    this.resetTarget.classList.add("d-none");
     this.clickMeTarget.innerText = "Click me again!"
     this.clickMeTarget.disabled = false;
+    this.resetTarget.classList.add("d-none");
   }
 }
